@@ -1,0 +1,14 @@
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\bin\Debug\net8.0\Tp1Poo2.exe
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\bin\Debug\net8.0\Tp1Poo2.deps.json
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\bin\Debug\net8.0\Tp1Poo2.runtimeconfig.json
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\bin\Debug\net8.0\Tp1Poo2.dll
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\bin\Debug\net8.0\Tp1Poo2.pdb
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\Tp1Poo2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\Tp1Poo2.AssemblyInfoInputs.cache
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\Tp1Poo2.AssemblyInfo.cs
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\Tp1Poo2.csproj.CoreCompileInputs.cache
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\Tp1Poo2.dll
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\refint\Tp1Poo2.dll
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\Tp1Poo2.pdb
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\Tp1Poo2.genruntimeconfig.cache
+C:\Users\thoma_eft0ch8\source\repos\Tp1Poo2\Tp1Poo2\obj\Debug\net8.0\ref\Tp1Poo2.dll
