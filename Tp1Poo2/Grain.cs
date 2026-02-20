@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
@@ -44,5 +45,36 @@ namespace Tp1Poo2
 
         // Methodes 
         public abstract TypeDeGrain GetVariety();
+
+
+        /*
+            Calcule la distance Minkowski entre les deux grains
+
+            pour la distance Manhattan:     degreDistance = 1
+            pour la distance Euclidienne:   degreDistance = 2
+         */
+        public double CalculerDistance(Grain autre, double degreDistance)
+        {
+            double dist = 0.0;
+
+            dist += MinkowskiStep(this.Area,                    autre.Area,                     degreDistance);
+            dist += MinkowskiStep(this.Perimeter,               autre.Perimeter,                degreDistance);
+            dist += MinkowskiStep(this.Compactness,             autre.Compactness,              degreDistance);
+            dist += MinkowskiStep(this.Kernel_Length,           autre.Kernel_Length,            degreDistance);
+            dist += MinkowskiStep(this.Kernel_Width,            autre.Kernel_Width,             degreDistance);
+            dist += MinkowskiStep(this.Groove_Length,           autre.Groove_Length,            degreDistance);
+            dist += MinkowskiStep(this.Asymmetry_Coefficient,   autre.Asymmetry_Coefficient,    degreDistance);
+
+            dist = Math.Pow(dist, 1 / degreDistance);
+            return dist;
+        }
+
+        private double MinkowskiStep(double x1, double x2, double degreDistance)
+        {
+            double ret = Math.Abs(x1 - x2);
+            ret = Math.Pow(ret, degreDistance);
+
+            return ret;
+        }
     }
 }
