@@ -15,6 +15,8 @@ namespace Tp1Poo2
         CANADIAN= 2,  
 
     }
+
+
     public abstract class Grain
     {
         // acces au classe fille
@@ -31,13 +33,13 @@ namespace Tp1Poo2
                      double asymmetryCoefficient)
 
         {
-            Area = area;
-            Perimeter = perimeter;
-            Compactness = compactness;
-            Kernel_Length = kernelLength;
-            Kernel_Width = kernelWidth;
-            Groove_Length = grooveLength;
-            Asymmetry_Coefficient = asymmetryCoefficient;
+            this.Area = area;
+            this.Perimeter = perimeter;
+            this.Compactness = compactness;
+            this.Kernel_Length = kernelLength;
+            this.Kernel_Width = kernelWidth;
+            this.Groove_Length = grooveLength;
+            this.Asymmetry_Coefficient = asymmetryCoefficient;
         }
 
         // Methodes 
