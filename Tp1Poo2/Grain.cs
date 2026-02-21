@@ -11,9 +11,9 @@ namespace Tp1Poo2
 {
     public enum TypeDeGrain
     {
-        ROSA = 0,   
+        ROSA = 0,
         KAMA = 1,
-        CANADIAN= 2,  
+        CANADIAN= 2,
 
     }
 

@@ -12,9 +12,9 @@ namespace Tp1Poo2
             double kernelwidth, double asymmetryCoefficient, double grooveLength)
             : base(area, perimeter, compactness, kernelLength, kernelwidth, asymmetryCoefficient, grooveLength)
         {
-
+            
         }
         public override TypeDeGrain GetVariety() => TypeDeGrain.CANADIAN;
     }
-
+   
 }
