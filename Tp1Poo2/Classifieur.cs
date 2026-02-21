@@ -2,6 +2,7 @@
 using CsvHelper.Configuration.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,42 @@ namespace Tp1Poo2
             }
 
             return results;
+        }
+
+        public int[,] CalculateConfusionMatrix(List<TypeDeGrain> prediction, List<Grain> real)
+        {
+            if(prediction.Count != real.Count)
+            {
+                throw new ArgumentException("prediction and real arrays do not have the same size.");
+            }
+
+            int nombreTypes = Enum.GetValues<TypeDeGrain>().Length;
+            int[,] matrix = new int[nombreTypes, nombreTypes];
+
+            for(int i = 0; i < prediction.Count; i++)
+            {
+                matrix[(int)prediction[i], (int)real[i].GetVariety()]++;
+            }
+
+            return matrix;
+        }
+
+        public double CalculatePrecision(int[,] confusionMatrix)
+        {
+            int correct = 0;
+            int total = 0;
+            for(int i = 0; i <  confusionMatrix.GetLength(0); i++)
+            {
+                for(int j = 0; j < confusionMatrix.GetLength(1); j++)
+                {
+                    // diagonale principale
+                    if (i == j) correct += confusionMatrix[i, j];
+
+                    total += confusionMatrix[i, j];
+                }
+            }
+
+            return (double)correct / (double)total;
         }
 
         private TypeDeGrain PredictionKNN(DistancesList distances)
