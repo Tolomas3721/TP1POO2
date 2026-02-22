@@ -16,7 +16,7 @@ namespace Tp1Poo2
     internal interface ClassifieurKNN
     {
         
-        public List<TypeDeGrain> ClassifierGrains(List<Grain> training, List<Grain> test, uint k, double distanceMax, double degreDistance)
+        public List<TypeDeGrain> ClassifierGrains(List<Grain> training, List<Grain> test, uint k, double distanceMax, double minkowskiValue)
         {
             List<TypeDeGrain> results = new List<TypeDeGrain>();
 
@@ -25,7 +25,7 @@ namespace Tp1Poo2
                 results.Add(
                     PredictionKNN(
                         ChooseKClosest(
-                            CalculerDistances(training, grain, degreDistance), k, distanceMax
+                            CalculateDistances(training, grain, minkowskiValue), k, distanceMax
                         )
                     )
                 );
@@ -52,7 +52,7 @@ namespace Tp1Poo2
             return matrix;
         }
 
-        public double CalculatePrecision(int[,] confusionMatrix)
+        public double CalculateAccuracy(int[,] confusionMatrix)
         {
             int correct = 0;
             int total = 0;
@@ -172,14 +172,14 @@ namespace Tp1Poo2
             return (TypeDeGrain)tieIndices[0];
         }
     
-        private DistancesList CalculerDistances(List<Grain> training, Grain test, double degreDistance)
+        private DistancesList CalculateDistances(List<Grain> training, Grain test, double minkowskiValue)
         {
             DistancesList distances = new DistancesList();
             foreach(var grain in training)
             {
                 distances.Add(
                     new Tuple<double, TypeDeGrain>(
-                        test.CalculerDistance(grain, degreDistance), grain.GetVariety()
+                        test.MinkowskiDistance(grain, minkowskiValue), grain.GetVariety()
                     )
                 );
             }
