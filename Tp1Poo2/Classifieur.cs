@@ -15,17 +15,23 @@ namespace Tp1Poo2
 
     internal interface ClassifieurKNN
     {
-        
-        public List<TypeDeGrain> ClassifierGrains(List<Grain> training, List<Grain> test, uint k, double distanceMax, double minkowskiValue)
+        /*
+        k MUST be non-zero
+        maxDistance MUST be greater than 0
+         */
+        public List<TypeDeGrain>? ClassifierGrains(List<Grain> training, List<Grain> test, uint k, double maxDistance, double minkowskiValue)
         {
             List<TypeDeGrain> results = new List<TypeDeGrain>();
+
+            // return empty list if there is an error
+            if (k == 0 || maxDistance <= 0.0 || minkowskiValue == 0.0) return results;
 
             foreach(Grain grain in test)
             {
                 results.Add(
                     PredictionKNN(
                         ChooseKClosest(
-                            CalculateDistances(training, grain, minkowskiValue), k, distanceMax
+                            CalculateDistances(training, grain, minkowskiValue), k, maxDistance
                         )
                     )
                 );
@@ -36,13 +42,14 @@ namespace Tp1Poo2
 
         public int[,] CalculateConfusionMatrix(List<TypeDeGrain> prediction, List<Grain> real)
         {
+            int nombreTypes = Enum.GetValues<TypeDeGrain>().Length;
+
+            int[,] matrix = new int[nombreTypes, nombreTypes];
+
             if(prediction.Count != real.Count)
             {
-                throw new ArgumentException("prediction and real arrays do not have the same size.");
+                return matrix;
             }
-
-            int nombreTypes = Enum.GetValues<TypeDeGrain>().Length;
-            int[,] matrix = new int[nombreTypes, nombreTypes];
 
             for(int i = 0; i < prediction.Count; i++)
             {
@@ -56,7 +63,7 @@ namespace Tp1Poo2
         {
             int correct = 0;
             int total = 0;
-            for(int i = 0; i <  confusionMatrix.GetLength(0); i++)
+            for(int i = 0; i < confusionMatrix.GetLength(0); i++)
             {
                 for(int j = 0; j < confusionMatrix.GetLength(1); j++)
                 {
@@ -186,7 +193,7 @@ namespace Tp1Poo2
             return distances;
         }
     
-        private DistancesList ChooseKClosest(DistancesList distances, uint k, double distanceMax)
+        private DistancesList ChooseKClosest(DistancesList distances, uint k, double maxDistance)
         {
             DistancesList closest = new DistancesList();
 
@@ -195,7 +202,7 @@ namespace Tp1Poo2
             // plus efficace qu'un tri rapide si k est petit
             foreach(var distance in distances)
             {
-                if(distance.Item1 > distanceMax) continue;
+                if(distance.Item1 > maxDistance) continue;
 
                 closest.Add(distance);
 

@@ -32,7 +32,6 @@ namespace Tp1Poo2
         public Grain(double area, double perimeter, double compactness,
                      double kernelLength, double kernelWidth, double grooveLength,
                      double asymmetryCoefficient)
-
         {
             this.Area = area;
             this.Perimeter = perimeter;
