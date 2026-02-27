@@ -16,13 +16,8 @@ namespace Tp1Poo2
     {
         static void Main(string[] args)
         {
-            string chemintest = "base_de_données/seeds_dataset_test.csv";
-            string chemintraining = "base_de_données/seeds_dataset_training.csv";
-            IFileManager file = new IFileManager();
-            List<Grain> test = file.ReadFile(chemintest);
-            foreach (Grain grain in test) {
-                Console.WriteLine(grain.GetVariety());
-            }
+            Interface_utilisateur interface_Utilisateur = new Interface_utilisateur();
+            interface_Utilisateur.MenuPrincipal();
+        }
+}
     }
-}
-}

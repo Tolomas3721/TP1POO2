@@ -13,8 +13,13 @@ namespace Tp1Poo2
     // moins lourd a lire de cette facon
     using DistancesList = List<Tuple<double, TypeDeGrain>>;
 
-    internal interface ClassifieurKNN
+    internal class ClassifieurKNN
+
     {
+        public ClassifieurKNN()
+        {
+
+        }
         /*
         k MUST be non-zero
         maxDistance MUST be greater than 0
