@@ -16,7 +16,7 @@ namespace Tp1Poo2
                 new FigletText("Bienvenue dans le classifieur KNN").Centered().Color(Color.Green)
             );
             uint k = ChooseK();
-            double minkowskiValue = chooseTypeDistance();
+            double minkowskiValue = chooseDistanceType();
             double maxDistance = chooseMaxDistance();
 
             Directory.SetCurrentDirectory("../../../../Tp1Poo2");
@@ -117,7 +117,7 @@ namespace Tp1Poo2
             AnsiConsole.WriteLine();
             return k;
         }
-        private double chooseTypeDistance()
+        private double chooseDistanceType()
         {
             int choose;
             double minkowskiResult;
