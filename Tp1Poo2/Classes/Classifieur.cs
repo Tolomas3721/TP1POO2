@@ -68,6 +68,7 @@ namespace Tp1Poo2
         {
             int correct = 0;
             int total = 0;
+
             for(int i = 0; i < confusionMatrix.GetLength(0); i++)
             {
                 for(int j = 0; j < confusionMatrix.GetLength(1); j++)
@@ -120,9 +121,7 @@ namespace Tp1Poo2
 
             Tuple<double, TypeDeGrain> closest = new Tuple<double, TypeDeGrain>(double.MaxValue, (TypeDeGrain)0);
 
-            closest = distances.MinBy(e => (
-                e.Item1 < closest.Item1
-            ))!; // on sait qu'il y a au moins une distance < infinity
+            closest = distances.MinBy(e => e.Item1)!; // on sait qu'il y a au moins une distance < infinity
 
             bool tie = false;
 
@@ -228,7 +227,7 @@ namespace Tp1Poo2
                 // we have more than k elements, remove the furthest one
                 if (closest.Count > k) closest.RemoveAt(closest.Count - 1);
             }
-
+            if (closest.Count == 0) closest.Add(distances.MinBy(e => e.Item1)!);
             return closest;
         }
     }

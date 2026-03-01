@@ -1,12 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more informati
+using CsvHelper;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CsvHelper;
-using System.Globalization;
-using System.IO;
 
 
 
@@ -16,8 +17,8 @@ namespace Tp1Poo2
     {
         static void Main(string[] args)
         {
-            Interface_utilisateur interface_Utilisateur = new Interface_utilisateur();
-            interface_Utilisateur.MenuPrincipal();
+            InterfaceUtilisateur interfaceUtilisateur = new InterfaceUtilisateur();
+            interfaceUtilisateur.MenuPrincipal();
         }
-}
     }
+}

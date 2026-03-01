@@ -29,17 +29,17 @@ namespace Tp1Poo2
         protected double Asymmetry_Coefficient { get; set; }
         protected double Groove_Length { get; set; }
         // les constructeurs
-        public Grain(double area, double perimeter, double compactness,
-                     double kernelLength, double kernelWidth, double grooveLength,
-                     double asymmetryCoefficient)
+        public Grain(double Area, double Perimeter, double Compactness,
+                     double Kernel_Length, double Kernel_Width, double Groove_Length,
+                     double Asymmetry_Coefficient)
         {
-            this.Area = area;
-            this.Perimeter = perimeter;
-            this.Compactness = compactness;
-            this.Kernel_Length = kernelLength;
-            this.Kernel_Width = kernelWidth;
-            this.Groove_Length = grooveLength;
-            this.Asymmetry_Coefficient = asymmetryCoefficient;
+            this.Area = Area;
+            this.Perimeter = Perimeter;
+            this.Compactness = Compactness;
+            this.Kernel_Length = Kernel_Length;
+            this.Kernel_Width = Kernel_Width;
+            this.Groove_Length = Groove_Length;
+            this.Asymmetry_Coefficient = Asymmetry_Coefficient;
         }
 
         // Methodes 
